@@ -1,0 +1,254 @@
+<?php
+require ($_SERVER['DOCUMENT_ROOT'].'/thu-vien/connect.php');
+
+$sqlCmd="SELECT MASP, TENSP, LINKS FROM SANPHAM ORDER BY NGAYTHEM DESC LIMIT 10";
+$result=mysqli_query($conn,$sqlCmd);
+echo'<div id="nor-content">';
+if (!empty($result))
+{
+	if ($result->num_rows>0){
+		while ($row = mysqli_fetch_assoc($result)){
+		$masp=$row['MASP'];
+		
+		$links=$row['LINKS'];
+		$links=explode(';',$links);
+		
+		$tensp=$row['TENSP'];
+		
+			echo'<div class="res-gallery">
+				<div class="gallery">
+					<a href="/?id=product'.$masp.'" target="_blank">
+						<img src="'.$links[1].'">
+					</a>
+					<div class="desc">'.$tensp.'</div>
+				</div>
+			</div>';
+		}
+	}
+}
+
+
+		
+echo'</div>';
+?>
+
+<!--
+<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ssd_02.jpg" target="_blank">
+					<img src="images/hangmoi/ssd_02.jpg">
+				</a>
+				<div class="desc">Ố cứng thể rắn SSD Intel</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ssd_03.jpg" target="_blank">
+					<img src="images/hangmoi/ssd_03.jpg">
+				</a>
+				<div class="desc">Ố cứng thể rắn SSD Kingston HyperX</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ssd_04.jpg" target="_blank">
+					<img src="images/hangmoi/ssd_04.jpg">
+				</a>
+				<div class="desc">Ố cứng thể rắn SSD Kingston</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ssd_05.png" target="_blank">
+					<img src="images/hangmoi/ssd_05.png">
+				</a>
+				<div class="desc">Ố cứng thể rắn SSD PNJ</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ssd_06.jpg" target="_blank">
+					<img src="images/hangmoi/ssd_06.jpg">
+				</a>
+				<div class="desc">Ố cứng thể rắn SSD Crurial</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_01.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_01.jpg">
+				</a>
+				<div class="desc">Ố cứng cơ HDD Western 7200RPM</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_02.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_02.jpg">
+				</a>
+				<div class="desc">Ố cứng cơ HDD Seagate 7200RPM</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_03.png" target="_blank">
+					<img src="images/hangmoi/hdd_03.png">
+				</a>
+				<div class="desc">Ố cứng cơ HDD Toshiba 7200RPM</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_04.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_04.jpg">
+				</a>
+				<div class="desc">Ố cứng cơ HDD HGST 7200RPM</div>
+			</div>
+		</div>
+
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_05.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_05.jpg">
+				</a>
+				<div class="desc">Ố cứng di động ADATA Vàng chanh</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_06.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_06.jpg">
+				</a>
+				<div class="desc">Ố cứng di động ADATA Xanh dương</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hdd_07.jpg" target="_blank">
+					<img src="images/hangmoi/hdd_07.jpg">
+				</a>
+				<div class="desc">Ố cứng di động Power Silicon Đen</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ms_01.jpg" target="_blank">
+					<img src="images/hangmoi/ms_01.jpg">
+				</a>
+				<div class="desc">Chuột Gaming Rapid Fire</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ms_02.jpg" target="_blank">
+					<img src="images/hangmoi/ms_02.jpg">
+				</a>
+				<div class="desc">Chuột Gaming Sades Flash Wing</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/ms_03.jpg" target="_blank">
+					<img src="images/hangmoi/ms_03.jpg">
+				</a>
+				<div class="desc">Chuột không dây Microsoft</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/kb_01.jpg" target="_blank">
+					<img src="images/hangmoi/kb_01.jpg">
+				</a>
+				<div class="desc">Bàn phím cơ Gaming Razer BlackWidow</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/kb_02.jpg" target="_blank">
+					<img src="images/hangmoi/kb_02.jpg">
+				</a>
+				<div class="desc">Bàn phím cơ Gaming Tecknet</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/kb_03.jpg" target="_blank">
+					<img src="images/hangmoi/kb_03.jpg">
+				</a>
+				<div class="desc">Bàn phím cơ Gaming Strike</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hs_01.jpg" target="_blank">
+					<img src="images/hangmoi/hs_01.jpg">
+				</a>
+				<div class="desc">Tai nghe Gaming Each GS210</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hs_02.jpg" target="_blank">
+					<img src="images/hangmoi/hs_02.jpg">
+				</a>
+				<div class="desc">Tai nghe Sennheiser Trắng</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/hs_03.jpg" target="_blank">
+					<img src="images/hangmoi/hs_03.jpg">
+				</a>
+				<div class="desc">Tai nghe Gaming Astro A40</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/cl_01.jpg" target="_blank">
+					<img src="images/hangmoi/cl_01.jpg">
+				</a>
+				<div class="desc">Đế tản nhiệt Deep Cooler Gỗ</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/cl_02.jpg" target="_blank">
+					<img src="images/hangmoi/cl_02.jpg">
+				</a>
+				<div class="desc">Đế tản nhiệt Deep Cool N2000FS</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/cl_03.jpg" target="_blank">
+					<img src="images/hangmoi/cl_03.jpg">
+				</a>
+				<div class="desc">Đế tản nhiệt Nuoxi L112</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/sp_01.png" target="_blank">
+					<img src="images/hangmoi/sp_01.png">
+				</a>
+				<div class="desc">Loa vi tính Bono Boss</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/sp_02.jpg" target="_blank">
+					<img src="images/hangmoi/sp_02.jpg">
+				</a>
+				<div class="desc">Loa Bluetooth không dây Bose</div>
+			</div>
+		</div>
+		<div class="res-gallery">
+			<div class="gallery">
+				<a href="images/hangmoi/sp_03.jpg" target="_blank">
+					<img src="images/hangmoi/sp_03.jpg">
+				</a>
+				<div class="desc">Loa Bluetooth không dây iSound</div>
+			</div>
+		</div>
+	</div>
+	-->

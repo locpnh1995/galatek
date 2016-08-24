@@ -1,0 +1,37 @@
+<?php
+require ($_SERVER['DOCUMENT_ROOT'].'/thu-vien/connect.php');
+
+$sqlCmd="SELECT MASP, TENSP, LINKS, GIA, LUOTXEM FROM SANPHAM ORDER BY LUOTXEM DESC LIMIT 5";
+$result=mysqli_query($conn,$sqlCmd);
+
+echo'<div id="right-menu">
+	<div id="right-menu-header">
+		<h3>Sản phẩm xem nhiều</h2>
+	</div>';
+if (!empty($result))
+		{
+			if ($result->num_rows>0){
+				while ($row = mysqli_fetch_assoc($result)){
+					$masp=$row['MASP'];
+					$tensp=$row['TENSP'];
+					
+					$links=$row['LINKS'];
+					$links=explode(';',$links);
+					
+					$gia=$row['GIA'];
+					$gia=addDot($gia);
+					
+					$luotxem=$row['LUOTXEM'];
+					
+					echo'<a id="'.$masp.'" href="/?id=product'.$masp.'" class="xem-nhieu">
+					<img src="'.$links[0].'" width=50 height=50>
+					<span class="tensp">'.$tensp.'</span>
+					<span class="gia">Giá: '.$gia.'</span>
+					<span class="luot-xem">Lượt xem: '.$luotxem.'</span>
+					</a>
+					';
+				}
+			}
+		}
+echo'</div>';
+?>
