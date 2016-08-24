@@ -35,7 +35,7 @@
 <body>
 	<?php
 		header('Content-Type: text/html; charset=utf-8');
-		require_once_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/header.php');
+		require_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/header.php');
 
 		echo '<div id="content" class="clearfix">';
 
