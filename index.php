@@ -35,30 +35,30 @@
 <body>
 	<?php
 		header('Content-Type: text/html; charset=utf-8');
-		require ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/header.php');
+		require_once_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/header.php');
 
 		echo '<div id="content" class="clearfix">';
 
 				if (!isset($_GET['id']))
 				{
-					include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/searchbar.html');
-					include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/slidebar.html');
-					include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/vernav.html');
-					require "search.php";
-					include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/right-menu.html');
+					include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/searchbar.html');
+					include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/slidebar.html');
+					include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/vernav.html');
+					require_once "search.php";
+					include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/right-menu.html');
 				}
 				else
 				{
 					if (substr($_GET['id'],0,7)=='product')
 					{
-						include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/searchbar.html');
-						include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/vernav.html');
+						include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/searchbar.html');
+						include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/vernav.html');
 					}
-					require "view.php";
+					require_once "view.php";
 				}
 
 		echo '</div>';
-		include ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/footer.html');
+		include_once ($_SERVER['DOCUMENT_ROOT'].'/trang-chu/footer.html');
 	?>
 </body>
 </html>
