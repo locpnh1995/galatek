@@ -1,9 +1,11 @@
 //responsive
 
+var isLoadMore = true;
 
 $(window).scroll(function(){
 	if ($(document).height()-$(window).scrollTop()<850)
 	{
+		isLoadMore = false;
 		console.log("tới tháng");
 		var searchQuerry=window.location.search;
 		var id=searchQuerry.substr(searchQuerry.length-10);
@@ -50,8 +52,9 @@ $(window).scroll(function(){
 				$('#no-more').remove();
 				$('#san-pham').append(html);
 				$('.more').attr('src','/images/circle-arrow.png');
-				
-			}
+				isLoadMore = true;
+			},
+			async: false
 		});
 		
 	}
