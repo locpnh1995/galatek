@@ -1,17 +1,17 @@
 <?php
 
-//
-$servername = "db4free.net";
+//$servername = "db4free.net";
+
+//$dbUsername = "viplocpro789";
+
+//$dbPassword = "kingqua000";
 
 //
-$dbUsername = "viplocpro789";
-
+$servername = "localhost";
 //
-$dbPassword = "kingqua000";
-
-//$servername = "localhost";
-//$dbUsername = "root";
-//$dbPassword = "";
+$dbUsername = "loc";
+//
+$dbPassword = "12341234";
 
 
 // Create connection

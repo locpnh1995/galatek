@@ -1,5 +1,62 @@
 //responsive
 
+
+$(window).scroll(function(){
+	if ($(document).height()-$(window).scrollTop()<850)
+	{
+		console.log("tới tháng");
+		var searchQuerry=window.location.search;
+		var id=searchQuerry.substr(searchQuerry.length-10);
+		var isIndex=true;
+		if (searchQuerry.substr(4,7)=='product')
+			isIndex=false;
+		if(searchQuerry.substr(1,6)=='search')
+		{
+			$(document.body).animate({
+			'scrollTop':
+				$('#center').offset().top}, 750);
+		}
+		if (!isIndex)
+		{
+			id=parseInt(id);
+			$('#previous').attr('href','http://'+window.location.hostname+'/?id=product'+isNext(id,'previous')+'#productDetails');
+			$('#next').attr('href','http://'+window.location.hostname+'/?id=product'+isNext(id,'next')+'#productDetails');
+			var doc=document.getElementById('doc');
+			if(doc!=null)
+				doc.focus();
+		}
+		
+		var load=document.getElementsByClassName('load-more')[0];
+		load.style.pointerEvents = 'none';
+		load.style.backgroundColor=load.style.color='#eeeeee';
+		load.style.border='none';
+
+		$('.more').attr('src','/images/load-more.gif');
+
+		var xemThem=document.getElementById('xem-them');
+
+		xemThem.innerHTML='Xin chờ...';
+
+		var ID = $('#san-pham li:last-child').attr('id');
+		$.ajax({
+			type: 'POST',
+			url: '/trang-chu/load-more.php',
+			data: 'id='+ID,
+			success: function(html){
+				load.style.pointerEvents = 'auto';
+				load.style.backgroundColor=load.style.color='white';
+				load.style.border='1px solid #4E5557';
+				xemThem.innerHTML='Xem thêm...';
+				$('#no-more').remove();
+				$('#san-pham').append(html);
+				$('.more').attr('src','/images/circle-arrow.png');
+				
+			}
+		});
+		
+	}
+});
+
 $(document).ready(function() {
 
 		$(".imenu").click(function(){
