@@ -13,7 +13,7 @@ $dbPassword = "passdbmysql";
 
 // Create connection
 
-$conn = mysqli_connect($servername, $dbUsername, $dbPassword,'sale');
+$conn = mysqli_connect($servername, $dbUsername, $dbPassword,'galatek');
 
 // Check connection
 
