@@ -1,10 +1,10 @@
 <?php
 
-$servername = "db4free.net";
+$servername = "us-cdbr-iron-east-05.cleardb.net";
 
-$dbUsername = "viplocpro";
+$dbUsername = "be14239637f138";
 
-$dbPassword = "passdbmysql";
+$dbPassword = "5e72a852";
 
 //$servername = "localhost";
 //$dbUsername = "loc";
@@ -13,7 +13,7 @@ $dbPassword = "passdbmysql";
 
 // Create connection
 
-$conn = mysqli_connect($servername, $dbUsername, $dbPassword,'galatek');
+$conn = mysqli_connect($servername, $dbUsername, $dbPassword,'heroku_b22387717459097');
 
 // Check connection
 
